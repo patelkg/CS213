@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.textfield.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller = "view.SongController" fx:id = "mainborder">
+    <right>
+    	<GridPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="400.0">
+	    	<padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+			<children>
+				<ListView layoutY="-1.0" prefHeight="200.0" prefWidth="400.0" fx:id="songview"/>
+			</children>
+		</GridPane>
+    </right>
+    <left>
+        <GridPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0">
+			<columnConstraints>
+				<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="5.0" prefHeight="20.0" valignment="CENTER" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="5.0" prefHeight="20.0" valignment="CENTER" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="5.0" prefHeight="20.0" valignment="CENTER" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Button fx:id = "addButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0"
+					text="Add" onAction = "#buttonSelection" />
+				<Button fx:id = "editButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0"
+					text="Edit" GridPane.rowIndex="2" onAction = "#buttonSelection" />
+				<Button fx:id = "deleteButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0"
+					text="Delete" GridPane.rowIndex="1" onAction = "#buttonSelection" />
+			</children>
+		</GridPane>
+    </left>
+    <bottom>
+        <GridPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="600.0" fx:id = "defaultPage"/>
+        <GridPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="600.0"
+			alignment="center" hgap="10" vgap="10" fx:id = "detailsPage">
+
+			<padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+			<columnConstraints>
+				<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+
+			<rowConstraints>
+				<RowConstraints minHeight="30.0" prefHeight="50.0" valignment="CENTER" />
+			</rowConstraints>
+
+			<children>
+				<Text style="-fx-font: NORMAL 20 SERIF;" text="TITLE:"
+					GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+				<Text fx:id = "detname" style="-fx-font: ITALIC 40 SERIF;" text="Name"
+					GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+				<Text style="-fx-font: NORMAL 20 SERIF;" text="ARTIST:"
+					GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+				<Text fx:id = "detartist" style="-fx-font: NORMAL 40 MONOTYPE;" text="Artist"
+					GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+				<Text style="-fx-font: NORMAL 20 SERIF;" text="ALBUM:"
+					GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+				<Text fx:id = "detalbum" style="-fx-font: NORMAL 30 MONOTYPE;" text="Album"
+					GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+				<Text style="-fx-font: NORMAL 20 SERIF;" text="YEAR:"
+					GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+				<Text fx:id = "detyear" style="-fx-font: NORMAL 25 MONOTYPE;" text="Year"
+					GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+			</children>
+		</GridPane>
+		<GridPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="400.0"
+			alignment="center" hgap="10" vgap="10" fx:id = "addPage">
+
+			<padding><Insets right="10" left="10"/></padding>
+
+			<columnConstraints>
+				<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+				<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
+			</columnConstraints>
+
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" />
+			</rowConstraints>
+
+			<children>
+			    <Text text="Fill in the details for the added song: "
+			        GridPane.columnIndex="0" GridPane.rowIndex="0"
+			        GridPane.columnSpan="2"/>
+			    <Label text="Title:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+			    <TextField fx:id = "addName" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+			    <Label text="Artist" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+			    <TextField fx:id = "addArtist" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+			    <Label text="Album (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+			    <TextField fx:id = "addAlbum" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+			    <Label text="Year (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+			    <TextField fx:id = "addYear" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+			    <Button fx:id = "confirmAdd" prefHeight="20.0" prefWidth="100.0"
+					text="Confirm" GridPane.columnIndex="0" GridPane.rowIndex="5" onAction = "#buttonSelection" />
+				<Button fx:id = "cancelAdd" prefHeight="20.0" prefWidth="100.0"
+					text="Decline" GridPane.columnIndex="1" GridPane.rowIndex="5" onAction = "#buttonSelection" />
+			</children>
+		</GridPane>
+		<GridPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="600.0"
+				  alignment="center" hgap="10" vgap="10" fx:id = "deletePage">
+
+			<padding><Insets right="10" left="10"/></padding>
+
+			<columnConstraints>
+				<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+				<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
+			</columnConstraints>
+
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" />
+			</rowConstraints>
+
+			<children>
+				<Text text="Are you sure you wish to delete this song? Either confirm or decline."
+					  GridPane.columnIndex="0" GridPane.rowIndex="0"
+					  GridPane.columnSpan="2"/>
+
+				<Button fx:id = "deleteConfirm" prefHeight="20.0" prefWidth="100.0"
+						text="Confirm" GridPane.columnIndex="0" GridPane.rowIndex="5" onAction = "#buttonSelection" />
+				<Button fx:id = "deleteCancel" prefHeight="20.0" prefWidth="100.0"
+						text="Decline" GridPane.columnIndex="1" GridPane.rowIndex="5" onAction = "#buttonSelection" />
+			</children>
+		</GridPane>
+		<GridPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="600.0"
+				  alignment="center" hgap="10" vgap="10" fx:id = "editPage">
+
+			<padding><Insets right="10" left="10"/></padding>
+
+			<columnConstraints>
+				<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+				<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
+			</columnConstraints>
+
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" />
+			</rowConstraints>
+
+			<children>
+				<Text text="Are you sure you wish to edit this song? Either confirm or decline your changes."
+					  GridPane.columnIndex="0" GridPane.rowIndex="0"
+					  GridPane.columnSpan="2"/>
+				<Label text="Title:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+				<TextField fx:id = "editName" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+				<Label text="Artist" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+				<TextField fx:id = "editArtist" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+				<Label text="Album (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+				<TextField fx:id = "editAlbum" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+				<Label text="Year (Optional)" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+				<TextField fx:id = "editYear" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+				<Button fx:id = "editFinish" prefHeight="20.0" prefWidth="100.0"
+						text="Confirm" GridPane.columnIndex="0" GridPane.rowIndex="5" onAction = "#buttonSelection" />
+				<Button fx:id = "editCancel" prefHeight="20.0" prefWidth="100.0"
+						text="Decline" GridPane.columnIndex="1" GridPane.rowIndex="5" onAction = "#buttonSelection" />
+			</children>
+		</GridPane>
+    </bottom>
+    <top>
+		<GridPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" />
+    </top>
+    <center>
+	    <GridPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" />
+    </center>
+
+</BorderPane>
